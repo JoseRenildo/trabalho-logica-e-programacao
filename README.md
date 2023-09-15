@@ -4,7 +4,7 @@ Aqui está sendo colocado todas as questões do trabalho individual de lógica e
 Utilizarei por agora a linguagem Python.
 <br>
 <br>
-Serão baseados nas seguintentes propostas:
+Serão baseados nas seguintentes propostas:<br>
 <br>
 Questão 01: Um simples sistema de uma loja que vende por atacado.
 <br>
