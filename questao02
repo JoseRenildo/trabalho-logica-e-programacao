@@ -1,0 +1,94 @@
+# APRESENTAÇÃO NO PAINÉL DO USUÁRIO
+print(' * Olá! Seja bem vindo a sorveteria do José Renildo dos Santos Junior! *')
+print(('-')*31, 'CARDÁPIO', ('-')*32)
+print('|' +(' Nº DE BOLAS     SABOR TRADICIONAL     SABOR PREMIUM    SABOR ESPECIAL')+ (' ') + ('|'))
+print('|' + ('     ') + ('1') + ('  ')*7 + ('R$ 6,00') + (' ')*15 + ('R$ 7,00') + (' ')*9 + ('R$ 8,00') + ('      ') + ('|'))
+print('|' + ('     ') + ('2') + ('  ')*7 + ('R$ 11,00') + ('  ')*7 + ('R$ 13,00') + ('  ')*4 + ('R$ 15,00') + ('     ') + ('|'))
+print('|' + ('     ') + ('3') + ('  ')*7 + ('R$ 15,00') + ('  ')*7 + ('R$ 18,00') + ('  ')*4 + ('R$ 21,00') + ('     ') + ('|'))
+print(('-')*73)
+# ALGORITMO PARA OPÇÕES COM QTD E SABORES
+total = 0
+while True:
+    sabor = str(input('Me diga qual sabor você deseja (tr/pr/es):')).lower()
+# VALIDAR SE A ENTRADA DE DADOS DO USUÁRIO ESTÁ CORRETA
+    if sabor != 'tr' and sabor != 'pr' and sabor != 'es':
+        print('Sabor Inválido. Verifique as opções oferecidas e tente novamente.')
+        print(('--')*36)
+        continue
+# SABOR TRADICIONAL COM PREÇOS DE ACORDO COM CADA QTD DE BOLAS
+    else:
+        if sabor == 'tr':
+            valor1 = 6.00
+            valor2 = 11.00
+            valor3 = 15.00
+            quantidade = int(input('Com quantas bolas? (1, 2 ou 3):'))
+            if quantidade == 1:
+                print(f'{quantidade} bola no sabor Tradicional fica R$ {valor1:.2f}')
+                total += valor1
+            elif quantidade == 2:
+                print(f'{quantidade} bolas no sabor Tradicional fica R$ {valor2:.2f}')
+                total += valor2
+            elif quantidade == 3:
+                print(f'{quantidade} bolas no sabor Tradicional fica R$ {valor3:.2f}')
+                total += valor3
+            else:
+                print('Quantidade Inválida. Verifique as opções fornecidas e tente novamente.')
+                print(('--') * 36)
+                continue
+# SABOR PREMIUM COM PREÇOS DE ACORDO COM QTD DE BOLAS
+        if sabor == 'pr':
+            valor1 = 7.00
+            valor2 = 13.00
+            valor3 = 18.00
+            quantidade = int(input('Com quantas bolas? (1, 2 ou 3):'))
+            if quantidade == 1:
+                print(f'{quantidade} bola no sabor Premium fica R$ {valor1:.2f}')
+                total += valor1
+            elif quantidade == 2:
+                print(f'{quantidade} bolas no sabor Premium fica R$ {valor2:.2f}')
+                total += valor2
+            elif quantidade == 3:
+                print(f'{quantidade} bolas no sabor Premium fica R$ {valor3:.2f}')
+                total += valor3
+            else:
+                print('Quantidade Inválida. Verifique as opções fornecidas e tente novamente.')
+                print(('--') * 36)
+                continue
+
+# SABOR ESPECIAL COM PREÇOS DE ACORDO COM QTD DE BOLAS
+        if sabor == 'es':
+            valor1 = 8.00
+            valor2 = 15.00
+            valor3 = 21.00
+            quantidade = int(input('Com quantas bolas? (1, 2 ou 3):'))
+            if quantidade == 1:
+                print(f'{quantidade} bola no sabor Especial fica R$ {valor1:.2f}')
+                total += valor1
+            elif quantidade == 2:
+                print(f'{quantidade} bolas no sabor Especial fica R$ {valor2:.2f}')
+                total += valor2
+            elif quantidade == 3:
+                print(f'{quantidade} bolas no sabor Especial fica R$ {valor3:.2f}')
+                total +=valor3
+            else:
+                print('Quantidade Inválida. Verifique as opções fornecidas e tente novamente.')
+                print(('--') * 36)
+                continue
+# FIDELIZAR O PEDIDO PERGUNTANDO SE DESEJA ALGO MAIS
+    print('Deseja fazer algum outro pedido?')
+    continuar = str(input('Sim (s)/ Não (Qualquer outra tecla):')).lower()
+    if continuar.lower() == 's':
+        print(('--')*36)
+        continue
+# CASO NÃO QUEIRA, ENCERRAR PROGRAMA
+    elif continuar.lower() != 's':
+        print(('--')*36)
+        print(f'Sua compra no total deu R$ {total:.2f}')
+        print('Agradecemos a sua visita! Volte sempre!')
+        break
+
+
+
+
+
+
