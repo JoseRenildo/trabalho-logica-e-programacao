@@ -1,0 +1,93 @@
+# Inicio de função cachorro_peso
+def cachorro_peso():
+    print('----------------| Menu 1 de 3 - Peso do cachorro |---------------')
+    while True:
+        try:
+            peso = float(input('Digite o peso do cão:'))
+            if peso < 3:
+                base = 40
+                return base
+            elif peso >= 3 and peso < 10:
+                base = 50
+                return base
+            elif peso >= 10 and peso < 30:
+                base = 60
+                return base
+            elif peso >= 30 and peso < 50:
+                base = 70
+                return base
+            else:
+                print('Desculpe, mas não trabalhamos com animais tão grandes (50 kg+).\n'
+                      'Por favor, digite o peso do animal novamente.')
+                continue # Retorna a pergunta
+        except ValueError:
+            print('Ops! Verifique se foi atrelado alguma letra e tente novamente.')
+            continue # Retorna a pergunta
+            break
+# Fim da função cachorro_peso
+
+# Inicio de função cachorro_pelo
+def cachorro_pelo():
+    print('----------------| Menu 2 de 3 - Pelo do cachorro |---------------')
+    while True:
+        print('''Tipo do pelo do seu cão:
+- Curto (c)
+- Médio (m)
+- Longo (l)''')
+        pelo = str(input('Informe qual tipo de pelo será trabalhado conforme as opções:')).lower().strip() # Converterá maiúsculas em minúsculas e desconsidera espaços
+        if pelo == 'c':
+            multiplicador = 1.0
+            return multiplicador
+        elif pelo == 'm':
+            multiplicador = 1.5
+            return multiplicador
+        elif pelo == 'l':
+            multiplicador = 2.0
+            return multiplicador
+        else:
+            print('Ops! Verifique o que foi digitado juntamente as opções disponíveis (c/m/l). Tente novamente.')
+            continue # Retorna a pergunta
+        break
+
+# Fim da função cachorro_pelo
+
+# Inicio de função cachorro_extra
+def cachorro_extra():
+    print('-----------------| Menu 3 de 3 - Serviço Extra |----------------')
+    print('* Verifique nossa Lista de Adicionais! *')
+    extra = 0
+    while True:
+        try:
+            print('--'*32)
+            print('''Gostaria de adicionar mais algum Serviço?:
+    (1) Cortar unhas - R$ 10,00
+    (2) Escovar os dentes - R$ 12,00
+    (3) Limpar as orelhas - R$ 15,00
+    (0) Gostaria de finalizar''')
+            adicional = int(input('Digite sua opção:'))
+            if adicional == 1:
+                extra += 10
+            elif adicional == 2:
+                extra += 12
+            elif adicional == 3:
+                extra += 15
+            elif adicional == 0:
+                extra += 0
+                break
+            else:
+                print('Opção Inválida. Verifique as opções fornecidas e tente novamente.')
+                continue
+        except ValueError:
+            print('Ops! Verifique se foi inserido alguma letra e tente novamente digitando nossas opções.')
+            continue
+    return extra
+# Fim da função cachorro_peso
+
+# Programa Principal
+print('|---------------- Olá, Seja Bem-Vindo ao Pet Shop do José Renildo dos Santos Junior! ----------------|')
+base = cachorro_peso()
+multiplicador = cachorro_pelo()
+extra = cachorro_extra()
+# SOMA DO SERVIÇO COMPLETO
+total = (base * multiplicador) + extra
+print(f'No total o serviço ficou R$ {total:.2f}. (Peso: {base} * Pelo: {multiplicador} + adicional(is): {extra})')
