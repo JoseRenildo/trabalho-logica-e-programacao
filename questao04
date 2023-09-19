@@ -1,0 +1,111 @@
+# ----------- Início das Variáveis Globais -----------
+lista_colaboradores = []
+id_global = 0
+
+# ----------- Fim das Variáveis Globais -----------
+
+# ----------- Início do cadastro de Colaboradores -----------
+def cadastrar_colaborador(id):
+    print('--'*17, 'MENU CADASTRAR COLABORADOR', '--'*17)
+    print(f'id do Colaborador: {id}')
+    nome = str(input('Por gentileza, nome do colaborador:'))
+    setor = str(input('Faz parte de qual setor?:'))
+    pagamento = float(input('Por gentileza, informe o pagamento (R$):'))
+    dicionario_colaborador = {'Id': id,
+                              'Nome'     : nome,
+                              'Setor'    : setor,
+                              'Pagamento': pagamento}
+    lista_colaboradores.append(dicionario_colaborador.copy())
+# ----------- Fim do cadastro de Colaboradores -----------
+
+# ----------- Início do consultar Colaboradores -----------
+def consultar_colaborador():
+    while True:
+        try:
+            print('--'*17, 'MENU CONSULTAR COLABORADOR', '--'*17)
+            print('''\nConfira as opções...
+(1) Consultar Todos os Colaboradores
+(2) Consultar Colaborador por Id
+(3) Consultar Colaborador por Setor
+(4) Retornar ao Menu''')
+            opcao_consultar = int(input('Escolha a opção desejada:'))
+            if opcao_consultar == 1:
+                for colaborador in lista_colaboradores: # Colaborador irá varrer toda a Lista de colaboradores
+                    print('---------------------')
+                    for key, value in colaborador.items(): # Varrer todos os conjuntos chaves e valores de cada item
+                        print(f'{key}: {value}')
+                    print('---------------------')
+
+
+            elif opcao_consultar == 2:
+                id_desejado = int(input('Digite o Id do Colaborador:'))
+                for colaborador in lista_colaboradores:
+                    if colaborador['Id'] == id_desejado: # se o valor do campo ID for IGUAL o ID solicitado
+                        print('---------------------')
+                        for key, value in colaborador.items():  # Varrer todos os conjuntos chaves e valores de cada item
+                            print(f'{key}: {value}')
+                        print('---------------------')
+
+
+            elif opcao_consultar == 3:
+                setor_desejado = str(input('Digite o Setor do(s) colaborador(es): '))
+                for colaborador in lista_colaboradores:
+                    if colaborador['Setor'] == setor_desejado: # se o valor do campo SETOR for IGUAL o SETOR solicitado
+                        print('---------------------')
+                        for key, value in colaborador.items():  # Varrer todos os conjuntos chaves e valores de cada item
+                            print(f'{key}: {value}')
+                        print('---------------------')
+
+
+            elif opcao_consultar == 4:
+                return #Volta para o Programa Principal
+
+            else:
+                print('Por gentileza, verifique o numero digitado e tente novamente.')
+                continue  # volta para o início do laço
+        except ValueError:
+            print('Ops! Verifique se foi digitado algum caracter. Tente novamente.')
+            continue  # volta para o início do laço
+# ----------- Fim do consultar Colaboradores -----------
+
+# ----------- Início do Remover Colaboradores -----------
+def remover_colaborador():
+    print('--'*17, 'MENU REMOVER COLABORADOR', '--'*17)
+    id_desejado = int(input('Digite o Id do Colaborador que deseja remover: '))
+    for colaborador in lista_colaboradores:
+        if colaborador['Id'] == id_desejado:
+            lista_colaboradores.remove(colaborador)
+            print('Colaborador Removido!')
+# ----------- Fim do Remover Colaboradores -----------
+
+# ----------- Início do Programa Principal -----------
+print('* Bem-Vindo ao Controle de Colaboradores do José Renildo dos Santos Junior! *')
+while True:
+    try:
+        print('--'*20, 'MENU PRINCIPAL', '--'*20)
+        print('''\nConfira as opções...
+(1) Cadastrar Colaborador
+(2) Consultar Colaborador
+(3) Remover Colaborador
+(4) Encerrar Programa''')
+        opcao_principal = int(input('Escolha a opção desejada:'))
+        if opcao_principal == 1:
+            id_global += 1
+            cadastrar_colaborador(id_global)
+
+        elif opcao_principal == 2:
+            consultar_colaborador()
+
+        elif opcao_principal == 3:
+            remover_colaborador()
+
+        elif opcao_principal == 4:
+            break
+
+        else:
+            print('Por gentileza, verifique o numero digitado e tente novamente.')
+            continue #volta para o início do laço
+    except ValueError:
+        print('Ops! Verifique se foi digitado algum caracter. Tente novamente.')
+        continue #volta para o início do laço
+# ----------- Fim do Programa Principal -----------
