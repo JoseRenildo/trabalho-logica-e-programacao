@@ -11,3 +11,5 @@ Questão 01: Um simples sistema de uma loja que vende por atacado.
 Questão 02: Um sistema que mostrará de forma simples o menu que será apresentado ao cliente e seu pedido.
 <br>
 Questão 03: Um sistema para banho em um Pet Shop, servindo para base de calculo no custo, de acordo com os serviços solicitados, se baseando no peso do Cachorro, tipo de pelo e serviços adicionais.
+<br>
+Questão 04: Sistema de cadastro, consulta e remoção de funcionários de uma determinada empresa. 
